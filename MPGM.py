@@ -88,18 +88,18 @@ class MPGM_model():
             self.errors.append(errors)
         return np.average(self.errors)
 
-def data(a):
+def data(a, n):
     list = []
-    for i in range(7):
+    for i in range(n):
         m = np.exp(a*(i))
         list.append(m)
     return list
 
-# m = data(0.5)
-# print(m)
-x=[3478, 3955, 4076, 4347, 4390, 4266, 4410, 4706, 5071, 5238]
-model = MPGM_model(x, pre_step= 3)
-print('拟合值为:', model.fit())
-print('数据的mape为:', model.get_mape())
-model.plot()
+for i in np.linspace(0.6, 0.7, 15):
+    n = np.random.randint(6, 11)
+    x = data(i, n)
+    model = MPGM_model(x)
+    # model1 = gm_11(x)
+    model.fit()
+    print(model.get_mape())
 
