@@ -95,7 +95,7 @@ def data(a, n):
         list.append(m)
     return list
 
-for i in np.linspace(0.6, 0.7, 15):
+for i in np.linspace(0.1, 0.7, 15):
     n = np.random.randint(6, 11)
     x = data(i, n)
     model = MPGM_model(x)
